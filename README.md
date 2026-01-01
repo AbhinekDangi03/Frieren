@@ -1,10 +1,3 @@
-I hear you. Balancing the "theme" with "professionalism" is tricky. For a resume, you want a recruiter to see Engineering Rigor first, and the "Frieren" theme as a subtle, clever layer of polish.
-
-Let’s strip away the "magic" talk and replace it with Systems Engineering terminology. This version screams "I understand Linux internals" while keeping the cool name.
-
-Replace your current README with this structure:
-Frieren: A Minimalist x86-64 Executable Construction
-
 Frieren is a systems-level project focused on the manual construction of the Executable and Linkable Format (ELF). By bypassing standard toolchains and linkers, this project demonstrates a deep understanding of the Linux ABI, System Calls, and binary optimization.
 🛠 Technical Overview
 
