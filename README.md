@@ -1,48 +1,38 @@
-🪄 Frieren (フリーレン)
+I hear you. Balancing the "theme" with "professionalism" is tricky. For a resume, you want a recruiter to see Engineering Rigor first, and the "Frieren" theme as a subtle, clever layer of polish.
 
-"It’s not that I’m trying to save time. It’s just that 1,000 years is a long time to spend on inefficient code."
+Let’s strip away the "magic" talk and replace it with Systems Engineering terminology. This version screams "I understand Linux internals" while keeping the cool name.
 
-Frieren is a minimalist, hand-crafted x86-64 security tool. While most modern programs are bloated with the "magic" of heavy compilers and massive libraries, Frieren is built using the Ancient Spells: Pure Assembly.
-🧝 Why "ELF"?
+Replace your current README with this structure:
+Frieren: A Minimalist x86-64 Executable Construction
 
-In the world of Linux, an ELF (Executable and Linkable Format) is the soul of a program. Much like the protagonist herself, this project explores the true nature of an ELF:
+Frieren is a systems-level project focused on the manual construction of the Executable and Linkable Format (ELF). By bypassing standard toolchains and linkers, this project demonstrates a deep understanding of the Linux ABI, System Calls, and binary optimization.
+🛠 Technical Overview
 
-    Longevity: Written in the foundational language of the machine (Assembly), intended to run as long as the architecture exists.
+Most modern binaries are bloated with boilerplate code added by compilers (GCC/Clang) and standard libraries (glibc). Frieren takes the opposite approach:
 
-    Minimalism: By manually constructing the ELF headers, we strip away the "human bloat," leaving only the raw, powerful essence of the code.
+    Custom ELF Header: The binary entry point and program headers are manually defined in Assembly.
 
-    Wisdom: To build an ELF from scratch is to understand the deep history of how Operating Systems breathe.
+    Direct Kernel Interface: All I/O and entropy collection are handled via raw Linux System Calls (syscall), eliminating the need for a runtime environment.
 
-🔮 The Grimoire (Features)
+    Entropy Source: Implements cryptographically secure pseudorandomness by interfacing directly with /dev/urandom.
 
-    Hand-Forged Headers: Unlike programs born from gcc or clang, Frieren’s headers are written byte-by-byte. No linker, no waste.
+🚀 Key Specifications
+Feature	Implementation
+Architecture	x86-64 (Intel/AMD 64-bit)
+Format	Manual ELF64 Header
+Dependencies	None (Static, zero-library dependency)
+Binary Size	< 500 Bytes (Target)
+Logic	Alphanumeric Password Generation (16-char)
+🏗 Build Process
 
-    Mana Efficiency: The final binary is microscopic (targeted at < 500 bytes). It is a "Tiny ELF" in every sense.
-
-    The Randomness Spell: Taps into the Linux Kernel’s /dev/urandom to manifest 16-character alphanumeric passkeys.
-
-    Zero Dependencies: Requires no standard C library. It speaks directly to the Kernel via System Calls.
-
-📜 The Spellbook (How it's Built)
-
-To manifest this executable, one must use the NASM catalyst:
+To maintain the integrity of the manual header construction, the project uses the Netwide Assembler (NASM).
 Bash
 
-# Assemble the logic (The Brain)
-nasm -f elf64 brain.asm -o brain.o
+# Assemble into a flat binary format
+nasm -f bin frieren.asm -o frieren
 
-# Bind the soul (The Linker)
-ld brain.o -o frieren
+# Set execution permissions
+chmod +x frieren
 
-# Execute the spell
+# Execute
 ./frieren
-
-⏳ The Journey
-
-    [x] Day 1-3: The Brain. Mastering the flow of randomness and character mapping.
-
-    [ ] Day 4-5: The Elven Heritage. Manually defining the ELF 64-bit headers.
-
-    [ ] Day 6: Optimization. Stripping the binary to its most ancient, tiny form.
-
-"The magic of the journey is not in the destination, but in the bytes we wrote along the way."
